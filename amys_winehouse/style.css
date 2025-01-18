@@ -78,8 +78,9 @@ nav ul li a {
 
 .product img, .teammate img {
   width: 100%;
-  height: auto;
+  height: 80%;
   border-radius: 10px;
+  background-size: cover;
 }
 
 .product h3, .teammate h3 {
@@ -91,6 +92,13 @@ nav ul li a {
   font-size: 16px;
 }
 
+#contact {
+  font-family: 'Alice', serif;
+  font-size: 14px;
+  margin: 10px 0 0;
+  text-align: center;
+}
+
 footer {
   background-color: #5c3956;
   color: white;
@@ -100,18 +108,18 @@ footer {
 
 @media (max-width: 768px) {
   header {
-      flex-direction: column;
-      text-align: center;
+    flex-direction: column;
+    text-align: center;
   }
+}
 
-  nav ul {
-      flex-direction: column;
-      gap: 10px;
-  }
+nav ul {
+  flex-direction: column;
+  gap: 10px;
 }
 
 @media (max-width: 576px) {
   .products, .team {
-      flex-direction: column;
+    flex-direction: column;
   }
 }
