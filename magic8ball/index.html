@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Magic 8 Ball</title>
+    <link rel="stylesheet" href="./resources/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+    />
+    <link
+      href="https://fonts.cdnfonts.com/css/digital-7-mono"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.cdnfonts.com/css/graphik-trial"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <class="container">
+    <header>
+      <h1>Ask the Magic Ball</h1>
+    </header>
+    <div class="text-field">
+      <label class="text-field__label" for="greatQuestion42">?</label>
+      <input
+        type="text"
+        id="greatQuestion42"
+        placeholder="Enter Your Question And Click Prediction..."
+        class="text-field__input"
+        value=""
+      />
+      <button class="prediction-btn" onclick="getPrediction()">
+        Prediction
+      </button>
+    </div>
+    <div class="user-question" id="user-question"></div>
+    <div class="magic-ball-container">
+      <div class="magic-ball-content">
+        <div class="magic-ball-result show-number" id="magic-ball-result"></div>
+      </div>
+    </div>
+    <script src="./scripts/app.js"></script>
+  </body>
+</html>

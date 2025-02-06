@@ -1,0 +1,251 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition-duration: 0.001s !important;
+  }
+}
+
+html {
+  --background-size: unquote("min(100vw, 40em)");
+  font-family: "Graphik Trial", sans-serif;
+  line-height: 1.15;
+  letter-spacing: normal;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-size: calc(100% + 0.2vw);
+}
+
+body {
+  background: linear-gradient(
+    280deg,
+    #4f00fa,
+    #6111b1,
+    #aa7dea,
+    #db2ab8,
+    #2a99db
+  );
+  background-color: #ffffff;
+  background-size: 300% 300%;
+  animation: gradient-animation 15s ease infinite;
+  padding: 1em;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.container {
+  min-height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@keyframes background-move {
+  0% {
+    background-position: 0 0, 0 0;
+  }
+  100% {
+    background-position: 100vw 0, 0 0;
+    background-position: max(100vw, 40em) 0, 0 0;
+  }
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 6%;
+}
+
+h1 {
+  font-family: "Pacifico", cursive;
+  transition: color 0.3s;
+  color: #ffd700;
+  &:hover {
+    color: #9400d3;
+  }
+}
+
+.text-field {
+  width: 100%;
+  max-width: 20em;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+}
+@supports (mix-blend-mode: darken) {
+  .text-field {
+    position: relative;
+    mix-blend-mode: lighten;
+  }
+  .text-field__label {
+    position: absolute;
+    right: 2.2em;
+    top: -0.8em;
+    background: #000;
+  }
+}
+.text-field__label {
+  padding: 0 0.5em;
+  margin-bottom: 0.5em;
+  text-transform: uppercase;
+  font-size: 0.6em;
+  letter-spacing: 0.1em;
+  color: #fff;
+  cursor: pointer;
+}
+.text-field__input {
+  color: rgb(0, 0, 0);
+  background-color: rgb(193, 189, 192);
+  width: 100%;
+  transition: background-color 0.3s;
+  font-size: 1rem;
+  outline: none;
+  height: calc(1em + 1.6em + 0.5em);
+  width: 100%;
+  padding: 1.5em;
+  border: 0.15em solid transparent;
+  border-radius: 1.8em;
+  margin-bottom: 6%;
+}
+.text-field__input:hover {
+  background-position: 100% 0;
+}
+.text-field__input:focus {
+  outline: 2px dashed #f6f4f6;
+  outline-offset: 0.5em;
+}
+
+.prediction-btn {
+  color: #0b0000;
+  font-size: 1rem;
+  cursor: pointer;
+  height: calc(1em + 1.6em + 0.5em);
+  transition: background-color 0.3s;
+  width: 100%;
+  border: none;
+  border-radius: 1.8em;
+  background-color: rgb(193, 189, 192);
+  margin-bottom: 6%;
+  &:hover {
+    background-color: #ffd700;
+    color: #000;
+    outline: 2px dashed #9400d3;
+    outline-offset: 0.5em;
+  }
+}
+
+.magic-ball-result:before {
+  content: "8";
+  display: block;
+  font-weight: bold;
+  color: black;
+  background-color: #fff;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  font-size: 8rem;
+  width: 13rem;
+  height: 13rem;
+  text-align: center;
+  line-height: 13rem;
+}
+
+.magic-ball-result.show-number:before {
+  display: block;
+}
+
+.magic-ball-result.reset:before,
+.magic-ball-result:not(.show-number):before {
+  display: none;
+}
+
+.magic-ball-result {
+  font-family: "Digital-7", sans-serif;
+  width: 30rem;
+  height: 30rem;
+  background-color: #000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  box-shadow: 0 0 5rem rgba(128, 121, 121, 0.5);
+  padding: 5%;
+  transition: transform 1s ease-in-out;
+  transform-origin: center center;
+}
+
+@keyframes rotate360 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.magic-ball-result.reset {
+  animation: rotate360 1s ease-in-out;
+}
+
+.magic-ball-result:hover {
+  background-color: darkviolet;
+  transform: scale(1.05);
+}
+
+.user-question {
+  font-size: 1rem;
+  color: #faf6f6;
+  margin-bottom: 6%;
+}
+
+address {
+  font-style: normal;
+}
+
+@media only screen and (max-width: 425px) {
+  .text-field__input {
+    font-size: 60%;
+    height: 3rem;
+    border-radius: 3rem;
+  }
+
+  .user-question {
+    font-size: 0.7rem;
+    width: 100%;
+  }
+
+  .magic-ball-result {
+    width: 15rem;
+    height: 15rem;
+    width: 18rem;
+    height: 18rem;
+    font-size: 0.9rem;
+  }
+
+  .magic-ball-result:before {
+    font-size: 8rem;
+    width: 8rem;
+    height: 8rem;
+    text-align: center;
+    line-height: 9rem;
+  }
+}
